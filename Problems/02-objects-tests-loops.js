@@ -63,7 +63,7 @@ function objectToSentence (obj) {
   // obj.propertyname
   // note the quotes in the first options
   // also note: you need to change this next line!!
-  return obj.firstName + ' '+ obj.lastName + ' was a '+obj.profession;
+  return obj.firstName + ' '+ obj.lastName + ' was a '+obj.profession+'.';
 }
 
 
@@ -99,6 +99,11 @@ function wasWriter (obj) {
   // "return" statement inside the conditional braces
   // so you can, e.g.,
   // if (...) {return A} else {return B}
+  if (obj.profession == 'novelist'){
+    return obj.firstName+' '+obj.lastName+' was a writer.';
+  } else {
+    return obj.firstName+' '+obj.lastName+' was not a writer.';
+  }
 }
 
 
@@ -119,8 +124,12 @@ function wasWriter (obj) {
 function stringIterator (aString, aNumber) {
   // remember a basic "for" loop has this structure:
   // for (var i = 0; i< SOMETHING; i++) {...statements...  };
+  var s = '';
+  for (var i = 0; i < aNumber; i++){
+    s = s + aString;
+  }
+  return s;
 }
-
 
 // Problem 5
 // Improve upon the above function by adding the iteration number in
@@ -144,6 +153,11 @@ function stringIterator (aString, aNumber) {
  */
 function prettyIterator (aString, aNumber) {
   // be sure to check your results on this one; it has a trick. maybe 2. 
+  var s = '';
+  for (var i = 0; i < aNumber; i++){
+    s = s + aString + '(' + (i+1) + ')\n';
+  }
+  return s;
 }
 
 
@@ -182,7 +196,7 @@ function prettyIterator (aString, aNumber) {
  * @param  {string} pm.fullName
  * @param {string} pm.party
  * @param {number} pm.from
- * @param {number} pm.toparty
+ * @param {number} pm.to
  * @returns {string} 
  */
 function computeReign (pm) {
@@ -192,6 +206,7 @@ function computeReign (pm) {
   // attributes and variables. remember that you may need to
   // "escape" the ' with \'
   // finally, makre sure you return the sentence as the value of the function
+  return pm.fullName+'\'s reign was '+ (pm.to - pm.from) +' years long.'
 }
 
 
@@ -245,6 +260,11 @@ function sentences(list) {
   // is to use the "for...of" loop syntax to loop through the array,
   // and the object[attribute] or object.attribute reference format to access
   // the internal components of the objects.
+  var s = '';
+  for (var i = 0; i < list.length; i++){
+    s = s + computeReign(list[i]) + '\n';
+  }
+  return s;
 }
 
 // DO NOT MODIFY -- FOR AUTOMATED TESTING ONLY
