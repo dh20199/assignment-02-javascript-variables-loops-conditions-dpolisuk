@@ -26,6 +26,7 @@ function returnObject (first, last, prof) {
   // o.firstName = first
   // etc.
   // don't forget to return the object
+  return {firstName: first, lastName: last, profession: prof};
 }
 
 
@@ -62,7 +63,7 @@ function objectToSentence (obj) {
   // obj.propertyname
   // note the quotes in the first options
   // also note: you need to change this next line!!
-  return 'RETURNVALUE';
+  return obj.firstName + ' '+ obj.lastName + ' was a '+obj.profession;
 }
 
 
