@@ -34,6 +34,7 @@ function hello () {
   // if you want you can declare a string variable first
   // or in this case you can just return the string directly
   // with something like "return 'Hello!'"
+  return 'Hello!';
 }
 
 // Problem 2
@@ -51,6 +52,7 @@ function greeting(name) {
   // say goodbye, I might write
   // let parting = "Goodbye, " + name + ".";
   // (but of course, I actually want to say hello.)
+  return 'Hello, '+name+'!';
 }
 
 // Problem 3
@@ -66,6 +68,7 @@ function greeting(name) {
 function returnArray (first, second, third) {
   // you can define the array using "new Array ()" or just "[ , , ]"
   // don't forget to return it
+  return [first, second, third];
 }
 
 
@@ -87,7 +90,7 @@ function splitArray (thisArray) {
   // array[0]
   // array[1]
   // etc.
-
+  return thisArray[0]+' '+thisArray[1]+' was a '+thisArray[2]+'.';
 }
 
 // Problem 5
@@ -101,6 +104,7 @@ function splitArray (thisArray) {
  */
 function subtract(number1, number2) {
   // subtract number2 from number1, and return the result.
+  return number1-number2;
 }
 
 
@@ -112,7 +116,11 @@ function carefulSubtract (first, second) {
   // test to be sure that both first and second are numbers.
   // if so, return the result. Otherwise, return the string
   // "I can only subtract numbers."
-
+  if (typeof(first) == 'number' && typeof(second) == 'number'){
+    return first-second;
+  } else {
+    return 'I can only subtract numbers.';
+  }
 }
 
 
@@ -131,6 +139,15 @@ function carefulSubtract (first, second) {
 function typeTester (unknown) {
   // use an if/else construction, a switch/case , or any other branching logic. Remember to
   // return a value. 
+  if (typeof(unknown) == 'string'){
+    return unknown+' yay!';
+  } else if (typeof(unknown) == 'number'){
+    return Math.pow(unknown, 2);
+  } else if (typeof(unknown) == 'undefined'){
+    return 'Sorry, I can\'t do anything with an undefined value.';
+  } else {
+    return 'I don\'t know how to use that kind of variable.';
+  }
 }
 
 
